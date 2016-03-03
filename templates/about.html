@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page-header %}
+  <header class="intro-header" style="background-image: url({% static 'img/about-bg.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>About Me</h1>
+                        <hr class="small">
+                        <span class="subheading">This is what I do.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock page-header %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Hey, there I'm Vishal Kumar,currently pursuing Electrical Engineering from IIT Roorkee although my heart resides with web and software development. I am a teetotaler, self-motivated developer with an interest in music - though couldn't play any. I keep myself updated about recent developments in technology and explore fields. Interested in entrepreneurship, let's see how it goes!</p>
+
+                <p>During my leisure time, I listen to music and watch TV Series. I love to travel - to explore. Late night outings - mostly walking is preferred. Being a teetotaler, I can't resist myself grabbing a cup of coffee. What say?</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

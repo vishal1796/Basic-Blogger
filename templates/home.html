@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page-header %}
+    <header class="intro-header" style="background-image: url({% static "img/home-bg.jpg" %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1> Clean Blog  </h1>
+                        <hr class="small">
+                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock page-header %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for obj in object_list %}
+                <div class="post-preview">
+                    <a href="{{ obj.get_absolute_url }}">
+                    <h2 class="post-title">
+                        {{obj.title}}
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {{ obj.subtitle | linebreaks }}   
+                    </h3>
+                    </a>
+                    <p class="post-meta">Posted {{obj.timestamp|timesince }} ago</p>
+                </div>
+                <hr> 
+            {% endfor %}
+            <div class="pager">
+                <li class="previous">
+                    {% if object_list.has_previous %}
+                        <a href="?{{page_request_var}}={{ object_list.previous_page_number }}"> &larr; Previous</a>
+                    {% endif %}
+                </li>
+
+                <li class="current">
+                    Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+                </li> 
+
+                <li class="next">
+                    {% if object_list.has_next %}
+                     <a href="?{{page_request_var}}={{ object_list.next_page_number }}"> Next &rarr; </a>
+                    {% endif %}
+                </li>
+            </div>
+        </div>   
+    </div>
+</div>
+{% endblock content %}
